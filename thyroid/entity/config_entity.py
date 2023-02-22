@@ -3,7 +3,7 @@ from thyroid.logger import logging
 from thyroid.exception import ThyroidException
 from datetime import datetime
 import json
-FILE_NAME = "hypothyroid.csv"
+FILE_NAME = "thyroid.csv"
 TRAIN_FILE_NAME = "train.csv"
 TEST_FILE_NAME = "test.csv"
 
@@ -41,7 +41,22 @@ class DataIngestionConfig:
             return self.__dict__
 
         except Exception  as e:
-            raise ThyroidException(e,sys) 
+            raise ThyroidException(e,sys)
+
+
+
+class DataValidationConfig:
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+        try:
+            self.data_validation_dir = os.path.join(training_pipeline_config.artifact_dir , "data_validation")
+            self.report_file_path=os.path.join(self.data_validation_dir, "report.yaml")
+            self.train_file_path = os.path.join(self.data_validation_dir,"dataset",TRAIN_FILE_NAME)
+            self.test_file_path = os.path.join(self.data_validation_dir,"dataset",TEST_FILE_NAME)
+            self.missing_threshold:float = 0.2
+            self.base_file_path = os.path.join("hypothyroid.csv")
+
+        except Exception as e:
+            raise ThyroidException(e, sys)
 
 
 

@@ -2,10 +2,17 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+artifact
 # C extensions
 *.so
-
+aps_failure_training_set1.csv
+/config/workspace/aps_failure_training_set1.csv
+prediction
+saved_models
+demotest.py
+logs
+artifacts
+raw_data
 # Distribution / packaging
 .Python
 build/
@@ -127,3 +134,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+hypothyroid.csv/

@@ -1,7 +1,7 @@
 import pandas as pd 
 import numpy as np
 import os, sys
-#import yaml
+import yaml
 #import dill    # To store python object as a file like pkl
 from thyroid.logger import logging
 from thyroid.config import mongo_client
@@ -30,5 +30,35 @@ def get_collection_as_dataframe(database_name:str,collection_name:str)->pd.DataF
         return df
     except Exception as e:
         raise ThyroidException(e, sys)
+
+def write_yaml_file(file_path,data:dict):
+    """
+    Creating yaml report for validation status of each column
+    """
+    try:
+        file_dir = os.path.dirname(file_path)
+        os.makedirs(file_dir,exist_ok=True)
+        with open(file_path,"w") as file_writer:
+            yaml.dump(data,file_writer)
+    except Exception as e:
+        raise ThyroidException(e, sys)
+
+def convert_columns_float(df:pd.DataFrame,exclude_columns:list)->pd.DataFrame:
+    """
+    Converting column to float type except target column
+    """
+    try:
+        obj_cols = df.columns[df.dtypes.eq('O')]
+        obj_cols = df[obj_cols]
+        for column in obj_cols.columns:
+            if column not in exclude_columns:
+                #df[column]=df[column].astype('float')
+                #df[column] = df[column].apply(pd.to_numeric, errors='coerce') 
+                df[column] = pd.to_numeric(column, errors='coerce') # ignore errors
+        return df
+    except Exception as e:
+        raise ThyroidException(e, sys)
+
+
     
 
