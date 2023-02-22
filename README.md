@@ -51,9 +51,13 @@ Note: origin--> contains url to your github repo main--> is your branch name
 
 .env file has
 
-MONGO_DB_URL=
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
+MONGO_DB_URL="mongodb://localhost:27017/neurolabDB"
+
+AWS_ACCESS_KEY_ID="sfsdfsdfsdf"
+
+AWS_SECRET_ACCESS_KEY="fergdfgrgerg"
+
+
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 sudo usermod -aG docker ubuntu
