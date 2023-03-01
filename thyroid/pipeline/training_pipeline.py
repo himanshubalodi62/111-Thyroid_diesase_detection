@@ -14,7 +14,7 @@ from thyroid.components.data_validation import DataValidation
 from thyroid.components.model_pusher import ModelPusher
 from thyroid.components.data_transformation import DataTransformation
 from thyroid.components.model_trainer import ModelTrainer
-from thyroid.components.model_evaluation import ModelEvaluation
+#from thyroid.components.model_evaluation import ModelEvaluation
 
 
 

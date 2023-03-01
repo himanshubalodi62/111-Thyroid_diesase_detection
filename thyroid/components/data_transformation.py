@@ -20,11 +20,11 @@ from thyroid.config import TARGET_COLUMN
 class DataTransformation:
 
     def __init__(self,data_transformation_config:config_entity.DataTransformationConfig,
-                    data_validation_artifact:artifact_entity.DataValidationArtifact):
+                    data_ingestion_artifact:artifact_entity.DataIngestionArtifact):
         try:
             logging.info(f"{'>>'*20} Data Transformation {'<<'*20}")
             self.data_transformation_config=data_transformation_config
-            self.data_validation_artifact=data_validation_artifact
+            self.data_ingestion_artifact=data_ingestion_artifact
         except Exception as e:
             raise ThyroidException(e, sys)
 
@@ -84,8 +84,8 @@ class DataTransformation:
         try:
             # Reading training and testing file
             logging.info("Reading training and testing file")
-            train_df = pd.read_csv(self.data_validation_artifact.train_file_path)
-            test_df = pd.read_csv(self.data_validation_artifact.test_file_path)
+            train_df = pd.read_csv(self.data_ingestion_artifact.train_file_path)
+            test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
             
             # Converting the categorical data to numerical
             logging.info("Converting the categorical data to numerical")
