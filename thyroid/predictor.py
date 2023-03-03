@@ -9,6 +9,9 @@ from datetime import datetime
 from glob import glob
 from typing import Optional
 
+missing_threshold = 0.2
+validation_error=dict()
+
 
 
 class ModelResolver:
