@@ -89,7 +89,7 @@ export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
 
 export AWS_DEFAULT_REGION=<AWS_DEFAULT_REGION>
 
-export MONGODB_URL=""
+export MONGODB_URL="mongodb+srv://himanshu:himanshu12345@ineuron.fpig7r5.mongodb.net/?retryWrites=true&w=majority"
 
 ```
 
@@ -117,18 +117,18 @@ docker run -d -p 8080:8080 <IMAGE_NAME>
 To run the project  first execute the below commmand.
 MONGO DB URL: 
 ```
-mongodb+srv://MongoDB:Sai12345@cluster0.i7o85x8.mongodb.net/?retryWrites=true&w=majority
+mongodb+srv://himanshu:himanshu12345@ineuron.fpig7r5.mongodb.net/?retryWrites=true&w=majority
 ```
 windows user
 
 ```
-MONGO_DB_URL=mongodb+srv://MongoDB:Sai12345@cluster0.i7o85x8.mongodb.net/?retryWrites=true&w=majority
+mongodb+srv://himanshu:himanshu12345@ineuron.fpig7r5.mongodb.net/?retryWrites=true&w=majority
 ```
 
 Linux user
 
 ```
-mongodb+srv://MongoDB:Sai12345@cluster0.i7o85x8.mongodb.net/?retryWrites=true&w=majority
+mongodb+srv://himanshu:himanshu12345@ineuron.fpig7r5.mongodb.net/?retryWrites=true&w=majority
 ```
 
 then run 
