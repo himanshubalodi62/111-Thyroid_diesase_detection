@@ -138,7 +138,7 @@ python main.py
 
 ### To download the dataset 
 ```
-wget https://raw.githubusercontent.com/saisubhasish/datasets/main/hypothyroid.csv
+wget https://raw.githubusercontent.com/himanshubalodi62/Thyroid-Disease-Detection/main/hypothyroid.csv
 ```
 
 ### To check and reset git log
