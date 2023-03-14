@@ -1,69 +1,197 @@
 
+# Thyroid Disease Detection
 
-### Step 1 - Install the requirements
 
+## Problem Statement:
+Thyroid disease is a common cause of medical diagnosis and prediction, with an onset
+that is difficult to forecast in medical research. The thyroid gland is one of our body's
+most vital organs. Thyroid hormone releases are responsible for metabolic regulation.
+Hyperthyroidism and hypothyroidism are one of the two common diseases of the thyroid
+that releases thyroid hormones in regulating the rate of body's metabolism.
+
+The main goal is to predict the estimated risk on a patient's chance of obtaining thyroid
+disease or not.
+
+
+## Approach: 
+The classical machine learning tasks like Data Exploration, Data Cleaning,
+Feature Engineering, Model Building and Model Testing. Try out different machine
+learning algorithms that’s best fit for the above case.
+
+
+## Tech Stack Used
+1. Python 
+2. VS Code 
+3. Machine learning algorithms
+4. Docker
+5. MongoDB
+
+
+## Infrastructure Required.
+
+1. AWS S3
+2. AWS EC2
+3. AWS ECR
+4. Github Actions
+5. Airflow
+
+
+
+
+## How to run?
+Before we run the project, make sure that you are having MongoDB in your local system, with Compass since we are using MongoDB for data storage. You also need AWS account to access the service like S3, ECR and EC2 instances.
+
+
+
+## Data Collections
+
+![image](https://user-images.githubusercontent.com/102937478/216246951-7c187908-a8b0-4c64-8f37-6549c49e20fa.png)
+
+## Project Archietecture
+
+![image](https://user-images.githubusercontent.com/57321948/193536768-ae704adc-32d9-4c6c-b234-79c152f756c5.png)
+
+
+## Deployment Archietecture
+![image](https://user-images.githubusercontent.com/57321948/193536973-4530fe7d-5509-4609-bfd2-cd702fc82423.png)
+
+
+
+### Step 1: Clone the repository
+```bash
+git clone 
+
+### Step 2- Create a conda environment after opening the repository
+
+```bash
+conda create -n thyroid python=3.8 -y
+
+or 
+
+conda create --prefix ./env python=3.7 -y
+conda activate ./env
+```
+
+```bash
+conda activate thyroid
+```
+
+### Step 3 - Install the requirements
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 2 - Run main.py file
+### Step 4 - Export the environment variable
+```bash
+export AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
 
+export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
+
+export AWS_DEFAULT_REGION=<AWS_DEFAULT_REGION>
+
+export MONGODB_URL="mongodb+srv://himanshu:himanshu12345@ineuron.fpig7r5.mongodb.net/?retryWrites=true&w=majority"
+
+```
+
+### Step 5 - Run the application server
 ```bash
 python main.py
 ```
 
-# To download your dataset
-https://archive.ics.uci.edu/ml/datasets/thyroid+disease
 
+## Run locally
 
-# Git commands
+1. Check if the Dockerfile is available in the project directory
 
-if you are starting a project and you want to use git in your project
+2. Build the Docker image
+```
+docker build --build-arg AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID> --build-arg AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY> --build-arg AWS_DEFAULT_REGION=<AWS_DEFAULT_REGION> --build-arg MONGODB_URL=<MONGODB_URL> . 
 
-git init
+```
 
-Note: This is going to initalize git in your source code.
+3. Run the Docker image
+```
+docker run -d -p 8080:8080 <IMAGE_NAME>
+```
 
-OR
-you can clone exiting github repo
+To run the project  first execute the below commmand.
+MONGO DB URL: 
+```
+mongodb+srv://himanshu:himanshu12345@ineuron.fpig7r5.mongodb.net/?retryWrites=true&w=majority
+```
+windows user
 
-Note: Clone/ Downlaod github repo in your system
+```
+mongodb+srv://himanshu:himanshu12345@ineuron.fpig7r5.mongodb.net/?retryWrites=true&w=majority
+```
 
-Add your changes made in file to git stagging are
+Linux user
 
-git add file_name
-Note: You can given file_name to add specific file or use "." to add everything to staging are
+```
+mongodb+srv://himanshu:himanshu12345@ineuron.fpig7r5.mongodb.net/?retryWrites=true&w=majority
+```
 
-Create commits
+then run 
+```
+python main.py
+```
 
-git commit -m "message"
+### To download the dataset 
+```
+wget https://raw.githubusercontent.com/himanshubalodi62/Thyroid-Disease-Detection/main/hypothyroid.csv
+```
+
+### To check and reset git log
+```
+git log
+git reset --soft 6afd
+6afd -> last 4 digit of log. 
+```
+
+### To add and uplod to git
+```
+git add filename
+we can also use . for all file(Current directory)
+
+git commit -m "Message"
 git push origin main
-Note: origin--> contains url to your github repo main--> is your branch name
+```
 
-To push your changes forcefully.
+### To run jupyter-notebook in vscode
+```
+ pip install ipykernel
+```
 
-git push origin main -f
-To pull changes from github repo
+### **To create a new environment in vscode** 
+```
+ 1. Select the command prompt as a terminal 
+conda create -p venv python==3.87 -y
+```
 
-git pull origin main
-
-Note: origin--> contains url to your github repo main--> is your branch name
-
-.env file has
-
+### Create a .env It contains details.
+```
 MONGO_DB_URL="mongodb://localhost:27017/neurolabDB"
-
-AWS_ACCESS_KEY_ID="sfsdfsdfsdf"
-
-AWS_SECRET_ACCESS_KEY="fergdfgrgerg"
-
-## DOCKER COMMAND
+AWS_ACCESS_KEY_ID="asfsdfsdgrgdfgfdgd"
+AWS_SECRET_ACCESS_KEY="hsdfgdfgimsdffdgfgdfertrrg"
+```
+### **To install dockers in aws machine (EC2)**
+```
 curl -fsSL https://get.docker.com -o get-docker.sh
-
 sudo sh get-docker.sh
-
 sudo usermod -aG docker ubuntu
-
 newgrp docker
+```
 
--------------------------------------------------------
+**Secrets**
+```
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_REGION=
+AWS_ECR_LOGIN_URI=
+ECR_REPOSITORY_NAME=
+BUCKET_NAME=
+MONGO_DB_URL=
+```
+
+
+
