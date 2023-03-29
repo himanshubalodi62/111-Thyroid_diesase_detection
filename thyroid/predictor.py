@@ -4,9 +4,7 @@ import numpy as np
 from thyroid.entity.config_entity import TARGET_ENCODER_OBJECT_FILE_NAME, MODEL_FILE_NAME, KNN_IMPUTER_OBJECT_FILE_NAME
 from typing import Optional
 from thyroid.exception import ThyroidException
-from thyroid.utils import load_object
 from datetime import datetime
-from glob import glob
 from typing import Optional
 
 missing_threshold = 0.2
